@@ -10,7 +10,7 @@ const getEngine = () => {
 }
 
 const getEngineTemplate = (engineId = null) => {
-	const customizedEngine = getConfiguration("useCustomizedEngine").trim()
+	const customizedEngine = getConfiguration("useCustomizedEngine", "").trim()
 	if (customizedEngine) return customizedEngine
 
 	engineId = engineId || getEngine()
@@ -55,6 +55,17 @@ const getSelection = () => new Promise((resolve, reject) => {
 })
 
 const openUrl = (url) => {
+	if(getConfiguration("z_execution")) {
+		const cmd = getConfiguration("z_executionCmd", "").trim()
+		const cwd = getConfiguration("z_executionCwd", "").trim()
+		if(cmd) {
+			require("child_process").execSync(
+				cmd.replace("%url", url), 
+				{cwd: require("path").resolve(cwd)},
+			)
+			return
+		}
+	}
 	if (getConfiguration("useInternalBrowser")) {
 		openAsInternal(url)
 	} else {

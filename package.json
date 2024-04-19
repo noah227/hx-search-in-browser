@@ -165,21 +165,18 @@
                     "type": "string",
                     "description": "自定义引擎（字符串中%s为搜索字符串占位）"
                 },
-                "noahyoung-hx-search-in-browser.searchEngine": {
+				"hx-search-in-browser.z_execution": {
+                    "type": "boolean",
+					"default": false,
+                    "description": "使用自定义可执行程序（此配置优先级高于内置浏览器配置）"
+                },
+				"hx-search-in-browser.z_executionCmd": {
+				    "type": "string",
+				    "description": "cmd（字符串中%url为目标地址占位）"
+				},
+				"hx-search-in-browser.z_executionCwd": {
                     "type": "string",
-                    "default": "百度",
-                    "description": "搜索引擎",
-                    "enum": [
-                        "百度",
-                        "搜狗",
-                        "Bing",
-                        "Google",
-                        "360",
-                        "cnblogs",
-                        "csdn",
-                        "stackoverflow",
-                        "github"
-                    ]
+                    "description": "cwd"
                 }
             }
         },
