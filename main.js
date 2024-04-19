@@ -51,7 +51,7 @@ const getSelection = () => new Promise((resolve, reject) => {
 		const selection = editor.selection
 		const text = editor.document.getText(selection)
 		text ? resolve(text) : reject("no selection")
-	})
+	}).catch(e => reject(e))
 })
 
 const openUrl = (url) => {
@@ -62,18 +62,27 @@ const openUrl = (url) => {
 	}
 }
 
-module.exports = {
-	search(engineId = null) {
+const search = (engineId = null, text=null) => {
+	const action = (text) => {
+		const template = getEngineTemplate(engineId)
+		const url = template.replace("%s", text)
+		// console.log(url, "<<<")
+		openUrl(url)
+		// hx.commands.executeCommand("workbench.action.togglePreviewBrowserVisibility", "https://www.baidu.com")
+		// console.log(engine, template, url, "<<<")
+		// rightSide浏览器的问题：宽度没法定，无法正确响应鼠标侧键事件
+	}
+	if(text) action(text)
+	else {
 		getSelection().then(text => {
-			const template = getEngineTemplate(engineId)
-			const url = template.replace("%s", text)
-			// console.log(url, "<<<")
-			openUrl(url)
-			// hx.commands.executeCommand("workbench.action.togglePreviewBrowserVisibility", "https://www.baidu.com")
-			// console.log(engine, template, url, "<<<")
-			// rightSide浏览器的问题：宽度没法定，无法正确响应鼠标侧键事件
+			action(text)
+		}).catch((e) => {
+			console.error(e)
 		})
-	},
+	}
+}
+module.exports = {
+	search,
 	searchQuickPick() {
 		getSelection().then(text => {
 			hx.window.showQuickPick(engines.map(engine => {
@@ -87,6 +96,12 @@ module.exports = {
 			})).then(item => {
 				openUrl(item.url)
 			})
+		})
+	},
+	searchWithInput(){
+		hx.window.showInputBox({prompt: "浏览器搜索", placeHolder: "请输入搜索内容"}).then(result => {
+			const text = result.trim()
+			if(text) search(null, text)
 		})
 	}
 }

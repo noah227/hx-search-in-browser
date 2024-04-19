@@ -11,8 +11,13 @@ function activate(context) {
 	//订阅销毁钩子，插件禁用的时候，自动注销该command。
 	context.subscriptions.push(disposable);
 	context.subscriptions.push(
-		hx.commands.registerCommand("extension.search_QuickPick", () => {
+		hx.commands.registerCommand("extension.search_quick_pick", () => {
 			main.searchQuickPick()
+		})
+	)
+	context.subscriptions.push(
+		hx.commands.registerCommand("extension.search_with_input", () => {
+			main.searchWithInput()
 		})
 	)
 	engines.forEach(({id, title}) => {

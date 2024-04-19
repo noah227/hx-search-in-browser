@@ -1,9 +1,9 @@
 ﻿# 浏览器搜索
 
 
-
 ## 使用
-> 主要有两种方式使用
+
+> 主要有三种方式使用
 
 ### 1. 右键
 
@@ -13,17 +13,27 @@
 
 ![](README_files/4.jpg)
 
-### 2. 快捷键方式
+### 2. 快捷键方式一
 
-默认没有配置，如果需要使用这个模式，可以到`工具 > 自定义快捷键`进行配置
+**默认没有配置**，如果需要使用这个模式，可以到`工具 > 自定义快捷键`手动进行配置
 
-> 示例配置（配置command为`extension.search_QuickPick`）
+> 示例配置（配置command为`extension.search_quick_pick`）
 
-![](README_files/2.jpg)
+![](README_files/3.jpg)
 
 > 使用效果
 
 ![](README_files/1.gif)
+
+### 3. 快捷方式二
+
+**默认没有配置**，如果需要使用这个模式，可以到`工具 > 自定义快捷键`手动进行配置
+
+> 示例配置（配置command为`extension.search_with_input`）
+
+> 使用效果
+
+![](README_files/2.gif)
 
 ## 配置项
 
