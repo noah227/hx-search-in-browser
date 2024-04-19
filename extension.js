@@ -6,15 +6,19 @@ const engines = require("./engines")
 //该方法将在插件激活的时候调用
 function activate(context) {
 	let disposable = hx.commands.registerCommand('extension.search', () => {
-		main()
+		main.search()
 	});
 	//订阅销毁钩子，插件禁用的时候，自动注销该command。
 	context.subscriptions.push(disposable);
-	
+	context.subscriptions.push(
+		hx.commands.registerCommand("extension.search_QuickPick", () => {
+			main.searchQuickPick()
+		})
+	)
 	engines.forEach(({id, title}) => {
 		context.subscriptions.push(
 			hx.commands.registerCommand(`extension.search_with_${id}`, () => {
-				main(id)
+				main.search(id)
 			})
 		)
 	})

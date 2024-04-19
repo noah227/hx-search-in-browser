@@ -6,6 +6,10 @@ const defaultCommands = [
 	{
 	    "command": "extension.search",
 	    "title": "浏览器搜索"
+	},
+	{
+	    "command": "extension.search_QuickPick",
+	    "title": "浏览器搜索（Quick Pick）"
 	}
 ]
 const defaultMenus = [

@@ -25,6 +25,10 @@
                 "title": "浏览器搜索"
             },
             {
+                "command": "extension.search_QuickPick",
+                "title": "浏览器搜索（Quick Pick）"
+            },
+            {
                 "command": "extension.search_with_Baidu",
                 "title": "百度(&1)"
             },
@@ -70,7 +74,7 @@
                 },
                 {
                     "id": "extension.search.entries",
-                    "title": "浏览器搜索++",
+                    "title": "浏览器搜索",
                     "group": "assist",
                     "when": "editorTextFocus && editorHasSelection"
                 },
