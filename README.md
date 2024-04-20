@@ -11,7 +11,7 @@
 
 > 使用效果
 
-![](README_files/4.jpg)
+![](README_files/1.jpg)
 
 ### 2. 快捷键方式一
 
@@ -19,11 +19,11 @@
 
 > 示例配置（配置command为`extension.search_quick_pick`）
 
-![](README_files/3.jpg)
+![](README_files/2.jpg)
 
 > 使用效果
 
-![](README_files/1.gif)
+![](README_files/3.gif)
 
 ### 3. 快捷方式二
 
@@ -33,7 +33,7 @@
 
 > 使用效果
 
-![](README_files/2.gif)
+![](README_files/4.gif)
 
 ## 配置项
 
@@ -41,7 +41,7 @@
 
 内置了多个引擎，按需选择即可
 
-![](README_files/2.jpg)
+![](README_files/5.jpg)
 
 > **如果只是需要一个简单的浏览器搜索，那么这个配置项大致足够了。可以无视后面看起来略显繁杂的配置内容。**
 
@@ -50,7 +50,7 @@
 * 自定义引擎会作为默认的搜索引擎使用
 * 没有自定义引擎时，使用已经选择的搜索引擎
 
-![](README_files/1.jpg)
+![](README_files/6.jpg)
 
 ### 使用内置浏览器模式
 
@@ -75,4 +75,4 @@
 * cmd: `chrome.exe --incognito %url`
 * cwd: `C:\\Program Files\\Google\\Chrome\\Application`
 
-![](README_files/5.jpg)
+![](README_files/7.jpg)
