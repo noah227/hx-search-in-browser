@@ -1,5 +1,34 @@
 const hx = require("hbuilderx")
 const engines = require("./engines")
+const path = require("path")
+const fs = require("fs")
+
+const pkg = require("./package.json")
+
+/**
+ * @returns {{[index: string]: any}[]}
+ */
+const loadEnginesCustomized = () => {
+	const filename = "engines.customized.js"
+	const fsPath = path.resolve(hx.env.appData, "extensions", pkg.id, filename) 
+	if(!fs.existsSync(fsPath)) {
+		// hx在点击入口进入的时候，会自动从package.json配置的路径读取文件并创建到配置文件路径
+		// 所以不存在访问不到文件的情况
+		// console.warn("文件不存在")	
+	}
+	return require(fsPath)
+}
+
+/**
+ * 自定义引擎与内置引擎混合数据，引擎ID冲突时，自定义引擎优先级更高
+ */
+const loadMixedEngines = () => {
+	const customizedEngines = loadEnginesCustomized()
+	return Object.values([...customizedEngines, ...engines].reduce((data, engine) => {
+		if(!data[engine.id]) data[engine.id] = engine
+		return data
+	}, {}))
+}
 
 const getConfiguration = (key, defaultValue) => {
 	return hx.workspace.getConfiguration("hx-search-in-browser").get(key, defaultValue)
@@ -14,14 +43,13 @@ const getEngineTemplate = (engineId = null) => {
 	if (customizedEngine) return customizedEngine
 
 	engineId = engineId || getEngine()
-	const engine = engines.find(item => item.id === engineId)
+	const engine = loadMixedEngines().find(item => item.id === engineId)
 	const useMobileEngine = getConfiguration("useMobileEngine")
 	return useMobileEngine && engine.templateMobile ? engine.templateMobile : engine.template
 }
 
 const webviewMap = {}
 const openAsInternal = (url) => {
-	const pkg = require("./package.json")
 	const viewId = pkg.id
 	let webview = webviewMap[viewId]
 	if (!webview) {
@@ -61,7 +89,7 @@ const openUrl = (url) => {
 		if(cmd) {
 			require("child_process").execSync(
 				cmd.replace("%url", url), 
-				{cwd: require("path").resolve(cwd)},
+				{cwd: path.resolve(cwd)},
 			)
 			return
 		}
@@ -96,7 +124,7 @@ module.exports = {
 	search,
 	searchQuickPick() {
 		getSelection().then(text => {
-			hx.window.showQuickPick(engines.map(engine => {
+			hx.window.showQuickPick(loadMixedEngines().map(engine => {
 				const url = getEngineTemplate(engine.id).replace("%s", text)
 				return {
 					id: engine.id,
@@ -114,5 +142,18 @@ module.exports = {
 			const text = result.trim()
 			if(text) search(null, text)
 		})
+	},
+	/**
+	 * 更新引擎（contextmenu）
+	 * 插件更新后会覆盖现有package.json，需要重新执行
+	 */
+	updateEngines(){
+		const engines = loadMixedEngines()
+		const builder = require("./builder/index")
+		builder(["updateEngines", "updateEnums"], {
+			updateEngines: engines,
+			updateEnums: engines
+		})
+		hx.window.showInformationMessage("已更新引擎配置，重启IDE后生效")
 	}
 }
