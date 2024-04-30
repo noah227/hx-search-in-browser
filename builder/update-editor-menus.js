@@ -1,5 +1,7 @@
 const path = require("path")
-const pkg = require("../package.json")
+
+const pkgPath = path.resolve(__dirname, "../package.json")
+const pkg = require(pkgPath)
 
 const defaultCommands = [
 	{
@@ -28,6 +30,7 @@ const defaultMenus = [
 	    "when": "editorTextFocus"
 	}
 ]
+
 
 /**
  * 更新contextmenus
@@ -65,7 +68,7 @@ module.exports = (engines) => {
 	pkg.contributes.menus["editor/context"] = contextMenus
 	console.log(pkg.contributes.commands)
 	const fs = require("fs")
-	fs.writeFileSync(path.resolve(__dirname, "../package.json"), JSON.stringify(pkg, null, 4))
+	fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4))
 	console.log("menus updated")
 }
 

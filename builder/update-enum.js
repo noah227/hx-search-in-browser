@@ -1,4 +1,6 @@
 const path = require("path")
+
+const pkgPath = path.resolve(__dirname, "../package.json")
 /**
  * 更新配置项的枚举
  */
@@ -6,7 +8,7 @@ module.exports = (engines) => {
 	engines = engines || require("../engines.js")
 
 	const enumList = engines.map(item => item.id)
-	const pkg = require("../package.json")
+	const pkg = require(pkgPath)
 
 	const configuration = pkg.contributes.configuration
 
@@ -21,6 +23,6 @@ module.exports = (engines) => {
 	}
 
 	const fs = require("fs")
-	fs.writeFileSync(path.resolve(__dirname, "../package.json"), JSON.stringify(pkg, null, 4))
+	fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4))
 	console.log("updated")
 }

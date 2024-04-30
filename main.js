@@ -4,17 +4,21 @@ const path = require("path")
 const fs = require("fs")
 
 const pkg = require("./package.json")
-
+const {execSync} = require("child_process")
 /**
  * @returns {{[index: string]: any}[]}
  */
 const loadEnginesCustomized = () => {
 	const filename = "engines.customized.js"
-	const fsPath = path.resolve(hx.env.appData, "extensions", pkg.id, filename) 
+	const extensionDataDir = path.resolve(hx.env.appData, "extensions", pkg.id) 
+	const fsPath = path.resolve(extensionDataDir, filename) 
 	if(!fs.existsSync(fsPath)) {
 		// hx在点击入口进入的时候，会自动从package.json配置的路径读取文件并创建到配置文件路径
 		// 所以不存在访问不到文件的情况
-		// console.warn("文件不存在")	
+		// console.warn("文件不存在")
+		// 只有在本级开发手动拷贝时才需要检测创建
+		if(!fs.existsSync(extensionDataDir)) fs.mkdirSync(extensionDataDir)
+		fs.writeFileSync(fsPath, fs.readFileSync(path.resolve(__dirname, filename)))
 	}
 	return require(fsPath)
 }
@@ -31,7 +35,11 @@ const loadMixedEngines = () => {
 }
 
 const getConfiguration = (key, defaultValue) => {
-	return hx.workspace.getConfiguration("hx-search-in-browser").get(key, defaultValue)
+	return hx.workspace.getConfiguration(pkg.id).get(key, defaultValue)
+}
+
+const updateConfiguration = (section, value) => {
+	hx.workspace.getConfiguration(pkg.id).update(section, value)
 }
 
 const getEngine = () => {
@@ -87,10 +95,7 @@ const openUrl = (url) => {
 		const cmd = getConfiguration("z_executionCmd", "").trim()
 		const cwd = getConfiguration("z_executionCwd", "").trim()
 		if(cmd) {
-			require("child_process").execSync(
-				cmd.replace("%url", url), 
-				{cwd: path.resolve(cwd)},
-			)
+			execSync(cmd.replace("%url", url), {cwd: path.resolve(cwd)})
 			return
 		}
 	}
@@ -154,6 +159,18 @@ module.exports = {
 			updateEngines: engines,
 			updateEnums: engines
 		})
-		hx.window.showInformationMessage("已更新引擎配置，重启IDE后生效")
+		// 更新插件配置，如果选择的自定以引擎被删除了，则恢复为内置引擎列表中的某一项
+		// package.json有default存在，所以不需要这个
+		// const selectedEngine = getEngine()
+		// if(!engines.find(item => item.id === selectedEngine)) {
+		// 	updateConfiguration("searchEngine", engines[0].id)
+		// }
+		hx.window.showInformationMessage("已更新引擎配置，重启IDE后生效", ["重启", "关闭"]).then(button => {
+			if(button === "重启") {
+				const appRoot = hx.env.appRoot
+				execSync("cli app quit", {cwd: appRoot})
+				execSync("cli open", {cwd: appRoot})
+			}
+		})
 	}
 }
