@@ -34,39 +34,43 @@
             },
             {
                 "command": "extension.search_with_Baidu",
-                "title": "百度(&1)"
+                "title": "百度(&A)"
             },
             {
                 "command": "extension.search_with_Sogou",
-                "title": "搜狗(&2)"
+                "title": "搜狗(&B)"
             },
             {
                 "command": "extension.search_with_Bing",
-                "title": "Bing(&3)"
+                "title": "Bing(&C)"
             },
             {
                 "command": "extension.search_with_Google",
-                "title": "Google(&4)"
+                "title": "Google(&D)"
             },
             {
                 "command": "extension.search_with_360",
-                "title": "360(&5)"
+                "title": "360(&E)"
             },
             {
                 "command": "extension.search_with_cnblogs",
-                "title": "cnblogs(&6)"
+                "title": "cnblogs(&F)"
             },
             {
                 "command": "extension.search_with_csdn",
-                "title": "csdn(&7)"
+                "title": "csdn(&G)"
             },
             {
                 "command": "extension.search_with_github",
-                "title": "github(&8)"
+                "title": "github(&H)"
             },
             {
                 "command": "extension.search_with_stackoverflow",
-                "title": "stackoverflow(&9)"
+                "title": "stackoverflow(&I)"
+            },
+            {
+                "command": "extension.updateEngines",
+                "title": "更新引擎"
             }
         ],
         "menus": {
@@ -80,7 +84,7 @@
                     "id": "extension.search.entries",
                     "title": "浏览器搜索",
                     "group": "assist",
-                    "when": "editorTextFocus && editorHasSelection"
+                    "when": "editorTextFocus"
                 },
                 {
                     "command": "extension.search_with_Baidu",
@@ -128,6 +132,11 @@
                     "when": "editorTextFocus && editorHasSelection"
                 },
                 {
+                    "command": "extension.updateEngines",
+                    "group": "extension.search.entries@9",
+                    "when": "editorTextFocus"
+                },
+                {
                     "group": "z_commands"
                 }
             ]
@@ -165,16 +174,16 @@
                     "type": "string",
                     "description": "自定义引擎（字符串中%s为搜索字符串占位）"
                 },
-				"hx-search-in-browser.z_execution": {
+                "hx-search-in-browser.z_execution": {
                     "type": "boolean",
-					"default": false,
+                    "default": false,
                     "description": "使用自定义可执行程序（此配置优先级高于内置浏览器配置）"
                 },
-				"hx-search-in-browser.z_executionCmd": {
-				    "type": "string",
-				    "description": "cmd（字符串中%url为目标地址占位）"
-				},
-				"hx-search-in-browser.z_executionCwd": {
+                "hx-search-in-browser.z_executionCmd": {
+                    "type": "string",
+                    "description": "cmd（字符串中%url为目标地址占位）"
+                },
+                "hx-search-in-browser.z_executionCwd": {
                     "type": "string",
                     "description": "cwd"
                 }
@@ -197,10 +206,19 @@
             ]
         }
     },
+    "configurationFiles": [
+        "engines.customized.js"
+    ],
+    "configurationFileInfos": {
+        "engines.customized.js": {
+            "description": "自定义引擎"
+        }
+    },
     "extensionDependencies": [
         "plugin-manager"
     ],
     "devDependencies": {
-        "cozip": "^0.1.0"
+        "cozip": "^0.1.0",
+        "inquirer": "^8.2.4"
     }
 }
