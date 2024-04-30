@@ -47,9 +47,6 @@ const getEngine = () => {
 }
 
 const getEngineTemplate = (engineId = null) => {
-	const customizedEngine = getConfiguration("useCustomizedEngine", "").trim()
-	if (customizedEngine) return customizedEngine
-
 	engineId = engineId || getEngine()
 	const engine = loadMixedEngines().find(item => item.id === engineId)
 	const useMobileEngine = getConfiguration("useMobileEngine")

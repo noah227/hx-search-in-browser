@@ -170,10 +170,6 @@
                     "default": false,
                     "description": "使用内置浏览器"
                 },
-                "hx-search-in-browser.useCustomizedEngine": {
-                    "type": "string",
-                    "description": "自定义引擎（字符串中%s为搜索字符串占位）"
-                },
                 "hx-search-in-browser.z_execution": {
                     "type": "boolean",
                     "default": false,
