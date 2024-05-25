@@ -82,7 +82,7 @@
                 },
                 {
                     "id": "extension.search.entries",
-                    "title": "浏览器搜索",
+                    "title": "浏览器搜索++",
                     "group": "assist",
                     "when": "editorTextFocus"
                 },
