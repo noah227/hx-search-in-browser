@@ -66,6 +66,7 @@ module.exports = (engines) => {
 	
 	pkg.contributes.commands = commands
 	pkg.contributes.menus["editor/context"] = contextMenus
+	pkg.enginesUpdatedAt = new Date().toLocaleString()
 	console.log(pkg.contributes.commands)
 	const fs = require("fs")
 	fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4))
