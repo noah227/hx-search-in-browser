@@ -162,12 +162,6 @@ module.exports = {
 		// if(!engines.find(item => item.id === selectedEngine)) {
 		// 	updateConfiguration("searchEngine", engines[0].id)
 		// }
-		hx.window.showInformationMessage("已更新引擎配置，重启IDE后生效", ["重启", "关闭"]).then(button => {
-			if(button === "重启") {
-				const appRoot = hx.env.appRoot
-				execSync("cli app quit", {cwd: appRoot})
-				execSync("cli open", {cwd: appRoot})
-			}
-		})
+		hx.window.showInformationMessage("已更新引擎配置，重启IDE后生效")
 	}
 }
