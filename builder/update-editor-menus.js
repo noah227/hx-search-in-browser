@@ -5,7 +5,7 @@ const pkg = require(pkgPath)
 
 const defaultCommands = [
 	{
-	    "command": "extension.search",
+	    "command": "extension.search_with_default",
 	    "title": "浏览器搜索"
 	},
 	{
@@ -19,13 +19,13 @@ const defaultCommands = [
 ]
 const defaultMenus = [
 	{
-	    "command": "extension.search",
+	    "command": "extension.search_with_default",
 	    "group": "assist",
 	    "when": "editorTextFocus && editorHasSelection"
 	},
 	{
 	    "id": "extension.search.entries",
-		"title": "浏览器搜索",
+		"title": "浏览器搜索++",
 	    "group": "assist",
 	    "when": "editorTextFocus"
 	}
