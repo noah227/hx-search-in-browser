@@ -21,7 +21,7 @@
     "contributes": {
         "commands": [
             {
-                "command": "extension.search",
+                "command": "extension.search_with_default",
                 "title": "浏览器搜索"
             },
             {
@@ -37,36 +37,12 @@
                 "title": "百度(&A)"
             },
             {
-                "command": "extension.search_with_Sogou",
-                "title": "搜狗(&B)"
-            },
-            {
                 "command": "extension.search_with_Bing",
-                "title": "Bing(&C)"
+                "title": "Bing(&B)"
             },
             {
                 "command": "extension.search_with_Google",
-                "title": "Google(&D)"
-            },
-            {
-                "command": "extension.search_with_360",
-                "title": "360(&E)"
-            },
-            {
-                "command": "extension.search_with_cnblogs",
-                "title": "cnblogs(&F)"
-            },
-            {
-                "command": "extension.search_with_csdn",
-                "title": "csdn(&G)"
-            },
-            {
-                "command": "extension.search_with_github",
-                "title": "github(&H)"
-            },
-            {
-                "command": "extension.search_with_stackoverflow",
-                "title": "stackoverflow(&I)"
+                "title": "Google(&C)"
             },
             {
                 "command": "extension.updateEngines",
@@ -76,7 +52,7 @@
         "menus": {
             "editor/context": [
                 {
-                    "command": "extension.search",
+                    "command": "extension.search_with_default",
                     "group": "assist",
                     "when": "editorTextFocus && editorHasSelection"
                 },
@@ -92,48 +68,18 @@
                     "when": "editorTextFocus && editorHasSelection"
                 },
                 {
-                    "command": "extension.search_with_Sogou",
+                    "command": "extension.search_with_Bing",
                     "group": "extension.search.entries@2",
                     "when": "editorTextFocus && editorHasSelection"
                 },
                 {
-                    "command": "extension.search_with_Bing",
+                    "command": "extension.search_with_Google",
                     "group": "extension.search.entries@3",
                     "when": "editorTextFocus && editorHasSelection"
                 },
                 {
-                    "command": "extension.search_with_Google",
-                    "group": "extension.search.entries@4",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
-                    "command": "extension.search_with_360",
-                    "group": "extension.search.entries@5",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
-                    "command": "extension.search_with_cnblogs",
-                    "group": "extension.search.entries@6",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
-                    "command": "extension.search_with_csdn",
-                    "group": "extension.search.entries@7",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
-                    "command": "extension.search_with_github",
-                    "group": "extension.search.entries@8",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
-                    "command": "extension.search_with_stackoverflow",
-                    "group": "extension.search.entries@9",
-                    "when": "editorTextFocus && editorHasSelection"
-                },
-                {
                     "command": "extension.updateEngines",
-                    "group": "extension.search.entries@9",
+                    "group": "extension.search.entries@3",
                     "when": "editorTextFocus"
                 },
                 {
@@ -150,14 +96,8 @@
                     "description": "搜索引擎",
                     "enum": [
                         "Baidu",
-                        "Sogou",
                         "Bing",
-                        "Google",
-                        "360",
-                        "cnblogs",
-                        "csdn",
-                        "github",
-                        "stackoverflow"
+                        "Google"
                     ]
                 },
                 "hx-search-in-browser.useMobileEngine": {
@@ -216,5 +156,6 @@
     "devDependencies": {
         "cozip": "^0.1.0",
         "inquirer": "^8.2.4"
-    }
+    },
+    "enginesUpdatedAt": "2024/7/15 11:27:14"
 }
