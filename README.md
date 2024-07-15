@@ -107,3 +107,9 @@
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-7.jpg)
 
 </details> 
+
+## 常见问题
+
+### 点击 `更新引擎` 并重启IDE后，右键菜单没有更新怎么办？
+
+偶发更新失败，重新更新下试试
