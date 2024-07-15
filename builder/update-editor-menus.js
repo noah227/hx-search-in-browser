@@ -2,6 +2,7 @@ const path = require("path")
 
 const pkgPath = path.resolve(__dirname, "../package.json")
 const pkg = require(pkgPath)
+const {logMessage} = require("./utils.js")
 
 const defaultCommands = [
 	{
@@ -71,5 +72,6 @@ module.exports = (engines) => {
 	const fs = require("fs")
 	fs.writeFileSync(pkgPath, JSON.stringify(pkg, null, 4))
 	console.log("menus updated")
+	logMessage("已更新右键菜单信息")
 }
 

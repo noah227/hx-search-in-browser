@@ -64,6 +64,7 @@
 > 打开文件进行配置
 
 * 自定义引擎与内置引擎混合数据，引擎ID冲突时，自定义引擎优先级更高
+	* 衍生小技巧：如果不想要内置的引擎，可以在自定义引擎中定义同id的配置，且同时配置disabled为true即可
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-3.jpg)
 

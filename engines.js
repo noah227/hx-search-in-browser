@@ -1,5 +1,5 @@
 /**
- * @type {{template: string, templateMobile?: string, title: string, id: string}[]}
+ * @type {{template: string, templateMobile?: string, title: string, id: string, disabled?: boolean}[]}
  */
 module.exports = [
 	{

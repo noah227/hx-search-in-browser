@@ -31,7 +31,7 @@ const loadMixedEngines = () => {
 	return Object.values([...customizedEngines, ...engines].reduce((data, engine) => {
 		if(!data[engine.id]) data[engine.id] = engine
 		return data
-	}, {}))
+	}, {})).filter(engine => !engine.disabled)
 }
 
 const getConfiguration = (key, defaultValue) => {
