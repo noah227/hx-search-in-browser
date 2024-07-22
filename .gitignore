@@ -3,6 +3,7 @@ node_modules
 /dist
 test.js
 *.zip
+builder/*.log
 
 
 # local env files
