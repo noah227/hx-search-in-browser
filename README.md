@@ -12,7 +12,7 @@
 
 > 使用效果
 
-![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-1.jpg)
+![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/1.png)
 
 </details>
 
@@ -50,9 +50,9 @@
 <details>
 <summary>搜索引擎</summary>
 
-内置了多个引擎，按需选择即可
+内置了常用引擎，按需选择即可
 
-![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-5.jpg)
+![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/5.png)
 
 > **如果只是需要一个简单的浏览器搜索，那么这个配置项大致足够了。可以无视后面看起来略显繁杂的配置内容。**
 
