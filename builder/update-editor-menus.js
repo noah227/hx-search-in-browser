@@ -42,7 +42,7 @@ module.exports = (engines) => {
 	const commands = [...defaultCommands]
 	const contextMenus = [...defaultMenus]
 	
-	const charList = new Array(26).fill("").map((_, index) => String.fromCharCode(index + 65))
+	const charList = new Array(26).fill("").map((_, index) => index + 1)
 	engines.forEach(({id, title}, index) => {
 		const command = `extension.search_with_${id}`
 		if(index < charList.length) title += `(&${charList[index]})`

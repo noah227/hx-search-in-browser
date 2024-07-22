@@ -34,15 +34,15 @@
             },
             {
                 "command": "extension.search_with_Baidu",
-                "title": "百度(&A)"
+                "title": "百度(&1)"
             },
             {
                 "command": "extension.search_with_Bing",
-                "title": "Bing(&B)"
+                "title": "Bing(&2)"
             },
             {
                 "command": "extension.search_with_Google",
-                "title": "Google(&C)"
+                "title": "Google(&3)"
             },
             {
                 "command": "extension.updateEngines",
@@ -157,5 +157,5 @@
         "cozip": "^0.1.0",
         "inquirer": "^8.2.4"
     },
-    "enginesUpdatedAt": "2024/7/15 11:27:14"
+    "enginesUpdatedAt": "2024/7/22 10:31:57"
 }
