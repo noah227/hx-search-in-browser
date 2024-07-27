@@ -37,7 +37,7 @@
 	
 **默认未配置**，如果需要使用这个模式，可以到`工具 > 自定义快捷键`手动进行配置
 
-> 配置command为`extension.search_with_input`
+> 配置command为`extension.search_with_input` （直接搜索的command是 `extension.search_with_default` ）
 
 > 使用效果
 
