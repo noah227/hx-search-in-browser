@@ -5,20 +5,16 @@
 
 > 主要有三种方式使用
 
-<details open>
-<summary>1. 右键</summary>
-	
+### 1. 右键
+
 选中文本 > 右键 > 浏览器搜索
 
 > 使用效果
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/1.png)
 
-</details>
+### 2. 快捷键方式一
 
-<details>
-<summary>2. 快捷键方式一</summary>
-	
 **默认未配置**，如果需要使用这个模式，可以到`工具 > 自定义快捷键`手动进行配置
 
 > 示例配置（配置command为`extension.search_quick_pick`）
@@ -28,12 +24,8 @@
 > 使用效果
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-3.gif)
-	
-</details>
 
-
-<details>
-<summary>3. 快捷方式二</summary>
+### 3. 快捷方式二
 	
 **默认未配置**，如果需要使用这个模式，可以到`工具 > 自定义快捷键`手动进行配置
 
@@ -43,23 +35,17 @@
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-4.gif)
 
-</details>
-
 ## 配置项
 
-<details>
-<summary>搜索引擎</summary>
-
+### 搜索引擎
+ 
 内置了常用引擎，按需选择即可
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/5.png)
 
 > **如果只是需要一个简单的浏览器搜索，那么这个配置项大致足够了。可以无视后面看起来略显繁杂的配置内容。**
-
-</details>
-
-<details>
-<summary>自定义引擎</summary>
+ 
+### 自定义引擎
 
 > 打开文件进行配置
 
@@ -72,28 +58,19 @@
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-4.jpg)
 
-</details>
-
-<details>
-<summary>使用内置浏览器模式</summary>
+### 使用内置浏览器模式
 
 * 勾选时，将在HBuilderX中创建web页面；
 * 不勾选时，使用系统默认浏览器搜索
 
 > 应用内打开时，可以通过`视图 > 插件扩展视图 > 浏览器搜索`关闭
-
-</details>
-
-<details>
-<summary>使用移动端引擎</summary>
+ 
+### 使用移动端引擎 
 
 * 勾选时，会尝试访问引擎对应的移动端页面（如果有的话）
 * 在使用内置浏览器模式时建议勾选
 
-</details>
-
-<details>
-<summary>自定义可执行程序</summary>
+### 自定义可执行程序
 
 此配置包含三项内容：开关、cwd和cmd
 
@@ -105,8 +82,6 @@
 * cwd: `C:\\Program Files\\Google\\Chrome\\Application`
 
 ![](https://mp-77dc03ae-7084-429e-8b0f-4d540ae4a430.cdn.bspapp.com/images/hx-search-in-browser/hx-search-in-browser-7.jpg)
-
-</details> 
 
 ## 常见问题
 

@@ -6,7 +6,7 @@ const pack = () => {
         ["./engines.js"],
         ["./engines.customized.js"],
         ["./extension.js"],
-        ["./main.js"],
+        ["./_.js"],
         ["./package.json"]
     ])
 }

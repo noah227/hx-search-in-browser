@@ -3,7 +3,7 @@
     "name": "hx-search-in-browser",
     "description": "搜索选中的文本",
     "displayName": "浏览器搜索",
-    "version": "0.1.0",
+    "version": "0.1.2",
     "publisher": "Noah Young",
     "engines": {
         "HBuilderX": "^2.9.9"
@@ -16,7 +16,7 @@
         "pack": "node hx-pack.js"
     },
     "activationEvents": [
-        "onCommand:extension.search"
+        "onCommand:extension.search_with_default"
     ],
     "contributes": {
         "commands": [
